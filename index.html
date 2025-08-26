@@ -3,45 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CalcBuild — Estimation rapide bâtiment</title>
+  <title>CalcBuild — Quick Building Estimate </title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <h1>CalcBuild</h1>
-    <p class="subtitle">Quantités & coûts — pièces, surfaces, murs, peinture, isolation</p>
+    <p class="subtitle">Construction Estimate Calculator</p>
   </header>
 
   <main class="container">
     <section class="card">
       <h2>Projet</h2>
       <div class="row">
-        <label for="projectName">Nom du projet</label>
-        <input id="projectName" type="text" placeholder="Maison Dupont — RDC" />
+        <label for="projectName">Project Name</label>
+        <input id="projectName" type="text" placeholder="Dupont House — Ground Floor" />
       </div>
       <div class="row grid-2">
         <div>
-          <label for="wallHeight">Hauteur des murs (m)</label>
+          <label for="wallHeight">Wall Height (m)</label>
           <input id="wallHeight" type="number" min="2" step="0.01" value="2.50" />
         </div>
         <div>
-          <label for="paintCoverage">Rendement peinture (m²/L)</label>
+          <label for="paintCoverage">Paint Coverage (m²/L)</label>
           <input id="paintCoverage" type="number" min="1" step="0.1" value="10" />
         </div>
       </div>
       <div class="row grid-2">
         <div>
-          <label for="paintPrice">Prix peinture (€/L)</label>
+          <label for="paintPrice">Paint Price (€/L)</label>
           <input id="paintPrice" type="number" min="0" step="0.01" value="18" />
         </div>
         <div>
-          <label for="plasterPrice">Prix enduit (€/m²)</label>
+          <label for="plasterPrice">Render Price (€/m²)</label>
           <input id="plasterPrice" type="number" min="0" step="0.01" value="12" />
         </div>
       </div>
       <div class="row grid-2">
         <div>
-          <label for="insulationPrice">Prix isolation (€/m²)</label>
+          <label for="insulationPrice">Insulation Price (€/m²)</label>
           <input id="insulationPrice" type="number" min="0" step="0.01" value="25" />
         </div>
         <div>
@@ -50,66 +50,66 @@
         </div>
       </div>
       <div class="actions">
-        <button id="saveProject">💾 Enregistrer</button>
-        <button id="loadProject">📂 Charger</button>
-        <button id="newProject">🧹 Nouveau</button>
-        <button id="exportCSV">⬇️ Export CSV</button>
-        <button id="printReport">🖨️ Imprimer / PDF</button>
+        <button id="saveProject">Save</button>
+        <button id="loadProject">Load</button>
+        <button id="newProject">New</button>
+        <button id="exportCSV">CSV Export</button>
+        <button id="printReport">Print / PDF</button>
       </div>
     </section>
 
     <section class="card">
-      <h2>Pièces</h2>
+      <h2>Rooms</h2>
       <div class="row grid-5 header-row">
-        <div>Nom</div>
-        <div>Longueur (m)</div>
-        <div>Largeur (m)</div>
-        <div>Ouvertures (m²)</div>
+        <div>Name</div>
+        <div>Length (m)</div>
+        <div>Width (m)</div>
+        <div>Openings (m²)</div>
         <div></div>
       </div>
       <div id="rooms"></div>
       <div class="actions">
-        <button id="addRoom">➕ Ajouter une pièce</button>
+        <button id="addRoom">Add a Room</button>
       </div>
     </section>
 
     <section class="card">
-      <h2>Résultats</h2>
+      <h2>Results</h2>
       <div class="results-grid">
         <div class="result">
-          <div class="label">Surface murs (m²)</div>
+          <div class="label">Wall Area (m²)</div>
           <div class="value" id="wallArea">0</div>
         </div>
         <div class="result">
-          <div class="label">Peinture nécessaire (L)</div>
+          <div class="label">Paint Required (L)</div>
           <div class="value" id="paintLiters">0</div>
         </div>
         <div class="result">
-          <div class="label">Coût peinture (€)</div>
+          <div class="label">Paint Cost (€)</div>
           <div class="value" id="paintCost">0</div>
         </div>
         <div class="result">
-          <div class="label">Enduit (€/m²)</div>
+          <div class="label">Render (€/m²)</div>
           <div class="value" id="plasterCost">0</div>
         </div>
         <div class="result">
-          <div class="label">Isolation (€/m²)</div>
+          <div class="label">Insulation (€/m²)</div>
           <div class="value" id="insulationCost">0</div>
         </div>
         <div class="result">
-          <div class="label">Total matériaux (€)</div>
+          <div class="label">Total Materials (€)</div>
           <div class="value" id="totalCost">0</div>
         </div>
       </div>
     </section>
 
     <section class="card">
-      <h2>Hypothèses de calcul</h2>
+      <h2>Calculation Assumptions</h2>
       <ul class="assumptions">
-        <li>Surface murs par pièce = périmètre × hauteur − ouvertures</li>
-        <li>Marge de perte appliquée sur la peinture et les surfaces</li>
-        <li>Peinture: litres = surface / rendement</li>
-        <li>Coûts = surfaces × prix unitaire (ou litres × prix au litre)</li>
+        <li>Wall area per room = perimeter × height − Openings</li>
+        <li>Waste margin applied to paint and surfaces</li>
+        <li>Paint: liters = surface area / yield</li>
+        <li>Costs = surface area × unit price (or liters × price per liter)</li>
       </ul>
     </section>
   </main>
@@ -117,6 +117,10 @@
   <footer class="footer">
     <span>© 2025 CalcBuild • MVP local-first</span>
   </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
 
   <script src="app.js"></script>
 </body>
