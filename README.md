@@ -1,3 +1,5 @@
+https://eni-dev09.github.io/calcbuild/
+
 # CalcBuild — Estimation rapide bâtiment (MVP)
 Application web **statique** (HTML/CSS/JS) pour estimer rapidement les **surfaces de murs** et les **coûts matériaux** (peinture, enduit, isolation) à partir d'une liste de pièces.
 
